@@ -111,7 +111,7 @@ app.get(
   "/user/tweets/feed/",
   authenticationToken,
   async (request, response) => {
-    const { username } = request.body;
+    const { username } = request;
     const getUserDetails = `select * from user where username='${username}';`;
     const dbUser = await database.get(getUserDetails);
     const userId = dbUser.user_id;
